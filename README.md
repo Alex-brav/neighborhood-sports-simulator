@@ -3,7 +3,6 @@
 A Java-based cellular automaton that models how sports preferences spread through a neighborhood over time. Each household on a grid updates its preference monthly based on the preferences of its neighbors, similar in concept to Conway's Game of Life, but with richer, sport-specific evolution rules.
 
 ---
-
 ## What it does
 
 The simulation runs on an NxN grid where each cell represents a household with one of seven states:
