@@ -90,6 +90,4 @@ Built as a course project to practice object-oriented design in Java - specifica
 
 ---
 
-## License
 
-MIT
