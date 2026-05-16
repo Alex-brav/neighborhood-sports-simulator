@@ -1,4 +1,4 @@
-package edu.iastate.cs2280.hw1;
+package com.alexbrav.sportsim;
 
 /**
  * The Household class serves as an abstract representation of a household entity

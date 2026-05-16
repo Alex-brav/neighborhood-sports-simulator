@@ -1,4 +1,4 @@
-package edu.iastate.cs2280.hw1;
+package com.alexbrav.sportsim;
 
 import java.io.File;
 import java.io.FileNotFoundException;

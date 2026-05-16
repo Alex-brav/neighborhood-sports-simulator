@@ -1,4 +1,4 @@
-package edu.iastate.cs2280.hw1;
+package com.alexbrav.sportsim;
 
 public class Nothing extends Household {
     public Nothing(NeighborhoodGrid grid, int row, int column) {

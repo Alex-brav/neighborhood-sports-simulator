@@ -1,4 +1,4 @@
-package edu.iastate.cs2280.hw1;
+package com.alexbrav.sportsim;
 
 /**
  * Represents an abstract household within a neighborhood that has a specific interest

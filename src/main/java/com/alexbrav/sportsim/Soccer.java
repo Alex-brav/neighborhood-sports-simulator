@@ -1,4 +1,4 @@
-package edu.iastate.cs2280.hw1;
+package com.alexbrav.sportsim;
 
 public class Soccer extends SportsHouseholds {  
     public Soccer(NeighborhoodGrid grid, int row, int column, int interestLevel) {

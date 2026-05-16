@@ -40,14 +40,14 @@ The grid can be initialized randomly or loaded from a file, and the simulation r
 
 ```bash
 # Clone the repo
-git clone https://github.com/yourusername/neighborhood-sports-simulation.git
-cd neighborhood-sports-simulation
+git clone https://github.com/Alex-brav/neighborhood-sports-simulator.git
+cd neighborhood-sports-simulator
 
 # Build
 mvn compile
 
 # Run
-mvn exec:java -Dexec.mainClass="edu.iastate.cs2280.hw1.Neighborhood"
+mvn exec:java -Dexec.mainClass="com.alexbrav.sportsim.Neighborhood"
 ```
 
 You'll be prompted to choose between a random grid or loading from a file, then enter the grid size and number of months to simulate.
@@ -78,7 +78,7 @@ B2 B2 S5 B2 R0 B2 E  A4
 
 ## Project background
 
-Built as a course project to practice object-oriented design in Java — specifically abstract class hierarchies, interface contracts, and simulation loop architecture. The rule system (7 household types × multiple prioritized conditions each) required careful separation of concerns to keep each class self-contained and testable.
+Built as a course project to practice object-oriented design in Java - specifically abstract class hierarchies, interface contracts, and simulation loop architecture. The rule system (7 household types x multiple prioritized conditions each) required careful separation of concerns to keep each class self-contained and testable.
 
 ---
 

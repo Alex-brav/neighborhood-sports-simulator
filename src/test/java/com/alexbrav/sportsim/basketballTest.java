@@ -1,8 +1,9 @@
-package edu.iastate.cs2280.hw1;
+package com.alexbrav.sportsim;
 
 import org.junit.jupiter.api.Test;
 
-public class rugbyTest {
+public class basketballTest {
+    
     // Check for first rule
     @Test
     public void firstCheck(){
@@ -11,7 +12,7 @@ public class rugbyTest {
 
         String[][] data = {
                 {"N", "N", "N"},
-                {"N", "R5", "N"},
+                {"N", "B5", "N"},
                 {"N", "N", "N"}
         };
 
@@ -20,6 +21,7 @@ public class rugbyTest {
         Household testResult = grid.grid[1][1].next(holderGrid, 1);
 
         assert(testResult instanceof Nothing);
+
     }
 
     // Check for Second rule
@@ -29,18 +31,19 @@ public class rugbyTest {
         NeighborhoodGrid holderGrid = new NeighborhoodGrid(3);
 
         String[][] data = {
-                {"F1", "S3", "F2"},
-                {"S4", "R1", "F1"},
-                {"S2", "F3", "S1"}
+                {"F3", "F1", "S4"},
+                {"F2", "B3", "F2"},
+                {"F1", "F5", "E"}
         };
 
         grid.initFromStrings(data);
 
         Household testResult = grid.grid[1][1].next(holderGrid, 1);
 
-        assert(testResult.toString().equals("S2 "));
-    }
+        assert(testResult.toString().equals("F2 "));
 
+    }
+    
     // Check for Third rule
     @Test
     public void thirdCheck(){
@@ -48,15 +51,17 @@ public class rugbyTest {
         NeighborhoodGrid holderGrid = new NeighborhoodGrid(3);
 
         String[][] data = {
-                {"B1", "A2", "A3"},
-                {"B1", "R2", "N"},
-                {"A2", "A4", "A1"}
+                {"S3", "F1", "F1"},
+                {"N", "B3", "E"},
+                {"S2", "S5", "E"}
         };
 
         grid.initFromStrings(data);
 
         Household testResult = grid.grid[1][1].next(holderGrid, 1);
-        assert(testResult.toString().equals("A4 "));
+
+        assert(testResult.toString().equals("S0 "));
+
     }
 
     // Check for Fourth rule
@@ -66,16 +71,16 @@ public class rugbyTest {
         NeighborhoodGrid holderGrid = new NeighborhoodGrid(3);
 
         String[][] data = {
-                {"N", "N", "N"},
-                {"N", "R3", "N"},
-                {"N", "F1", "N"}
+                {"S3", "N", "N"},
+                {"N", "B3", "N"},
+                {"N", "N", "F1"}
         };
 
         grid.initFromStrings(data);
 
         Household testResult = grid.grid[1][1].next(holderGrid, 1);
 
-        assert(testResult.toString().equals("F0 "));
+        assert(testResult instanceof Everything);
     }
 
     // Check for Fifth rule
@@ -85,16 +90,33 @@ public class rugbyTest {
         NeighborhoodGrid holderGrid = new NeighborhoodGrid(3);
 
         String[][] data = {
-                {"N", "N", "S1"},
-                {"N", "R2", "R2"},
-                {"N", "N", "N"}
+                {"F3", "B1", "A4"},
+                {"N", "B3", "E"},
+                {"A2", "B5", "F1"}
         };
 
         grid.initFromStrings(data);
 
         Household testResult = grid.grid[1][1].next(holderGrid, 1);
-        System.out.println(testResult.toString());
 
-        assert(testResult.toString().equals("R3 "));
+        assert(testResult instanceof Everything);
+    }
+
+    // Check for Sixth rule
+    @Test
+    public void sixthCheck(){
+        NeighborhoodGrid grid = new NeighborhoodGrid(3);
+        NeighborhoodGrid holderGrid = new NeighborhoodGrid(3);
+
+        String[][] data = {
+                {"F3", "B1", "F4"},
+                {"N", "B3", "E"},
+                {"A2", "S5", "N"}
+        };
+
+        grid.initFromStrings(data);
+
+        Household testResult = grid.grid[1][1].next(holderGrid, 1);
+        assert(testResult.toString().equals("B4 "));
     }
 }

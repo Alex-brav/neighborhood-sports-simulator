@@ -1,30 +1,9 @@
-package edu.iastate.cs2280.hw1;
+package com.alexbrav.sportsim;
 
-import org.junit.jupiter.api.Test; 
+import org.junit.jupiter.api.Test;
 
-public class footballTest {
+public class baseballTest {
     
-    // Check for zero rule
-    @Test
-    public void zeroCheck(){
-        NeighborhoodGrid grid = new NeighborhoodGrid(3);
-        NeighborhoodGrid holderGrid = new NeighborhoodGrid(3);
-
-        String[][] data = {
-                {"N", "N", "N"},
-                {"N", "F0", "N"},
-                {"N", "N", "N"}
-        };
-
-        grid.initFromStrings(data);
-
-        Household testResult = grid.grid[1][1].next(holderGrid, 5);
-
-        assert(testResult.toString().equals("F1 "));
-
-    }
-
-
     // Check for first rule
     @Test
     public void firstCheck(){
@@ -33,7 +12,7 @@ public class footballTest {
 
         String[][] data = {
                 {"N", "N", "N"},
-                {"N", "F5", "N"},
+                {"N", "A5", "N"},
                 {"N", "N", "N"}
         };
 
@@ -52,16 +31,16 @@ public class footballTest {
         NeighborhoodGrid holderGrid = new NeighborhoodGrid(3);
 
         String[][] data = {
-                {"A3", "F1", "A4"},
-                {"N", "F3", "B2"},
-                {"F1", "A5", "F1"}
+                {"S3", "F1", "S4"},
+                {"N", "A3", "S2"},
+                {"A1", "S5", "E"}
         };
 
         grid.initFromStrings(data);
 
         Household testResult = grid.grid[1][1].next(holderGrid, 1);
 
-        assert(testResult instanceof Everything);
+        assert(testResult.toString().equals("S0 "));
 
     }
     
@@ -72,16 +51,15 @@ public class footballTest {
         NeighborhoodGrid holderGrid = new NeighborhoodGrid(3);
 
         String[][] data = {
-                {"B3", "F1", "B4"},
-                {"N", "F3", "E"},
-                {"B2", "B5", "E"}
+                {"S3", "F1", "F1"},
+                {"N", "A3", "E"},
+                {"S2", "S5", "E"}
         };
 
         grid.initFromStrings(data);
 
         Household testResult = grid.grid[1][1].next(holderGrid, 1);
-
-        assert(testResult.toString().equals("B0 "));
+        assert(testResult.toString().equals("R0 "));
 
     }
 
@@ -92,37 +70,53 @@ public class footballTest {
         NeighborhoodGrid holderGrid = new NeighborhoodGrid(3);
 
         String[][] data = {
-                {"B3", "A1", "A4"},
-                {"N", "F3", "A2"},
-                {"A1", "B5", "E"}
+                {"S3", "S1", "A1"},
+                {"N", "A3", "E"},
+                {"A2", "S5", "F1"}
         };
 
         grid.initFromStrings(data);
 
         Household testResult = grid.grid[1][1].next(holderGrid, 1);
-        System.out.println(testResult.toString());
-
-        assert(testResult.toString().equals("A0 "));
+        assert(testResult instanceof Nothing);
 
     }
 
     // Check for Fifth rule
     @Test
-    public void fifthCheck(){   
+    public void fifthCheck(){
         NeighborhoodGrid grid = new NeighborhoodGrid(3);
         NeighborhoodGrid holderGrid = new NeighborhoodGrid(3);
 
         String[][] data = {
-                {"B3", "F1", "A4"},
-                {"N", "F3", "N"},
-                {"A1", "B5", "E"}
+                {"S3", "S1", "A1"},
+                {"N", "A3", "E"},
+                {"A2", "S5", "F1"}
         };
 
         grid.initFromStrings(data);
 
         Household testResult = grid.grid[1][1].next(holderGrid, 1);
+        assert(testResult instanceof Nothing);
 
-        assert(testResult.toString().equals("F4 "));
+    }
+    
+    // Check for Sixth rule
+    @Test
+    public void sixthCheck(){
+        NeighborhoodGrid grid = new NeighborhoodGrid(3);
+        NeighborhoodGrid holderGrid = new NeighborhoodGrid(3);
 
-    }    
+        String[][] data = {
+                {"N", "N", "N"},
+                {"N", "A0", "N"},
+                {"A1", "N", "N"}
+        };
+
+        grid.initFromStrings(data);
+
+        Household testResult = grid.grid[1][1].next(holderGrid, 1);
+        assert(testResult.toString().equals("A1 "));
+
+    }
 }
